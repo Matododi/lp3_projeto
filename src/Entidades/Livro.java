@@ -133,7 +133,7 @@ public class Livro implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Livro[ idLivro=" + idLivro + " ]";
+        return idLivro + "-"+descricao;
     }
     
 }

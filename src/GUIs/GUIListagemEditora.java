@@ -1,6 +1,8 @@
 package GUIs;
+
 import Entidades.Editora;
-import tools.*;import java.awt.BorderLayout;
+import tools.*;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -13,35 +15,38 @@ import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;
 import java.text.DecimalFormat;
-public class GUIListagemEditora extends JDialog {
-JPanel painelTa = new JPanel();
-JScrollPane scroll = new JScrollPane();
-SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-DecimalFormat decimalFormat = new DecimalFormat("###,###,##0.00");
-public GUIListagemEditora(List<Editora> texto) {
-setTitle("Listagem de Editora");
-setSize(600, 300);//tamanho da janela
-setDefaultCloseOperation(DISPOSE_ON_CLOSE);//libera ao sair (tira da memÃ³ria a classe
-setLayout(new BorderLayout());//informa qual gerenciador de layout serÃ¡ usado
-setBackground(Color.CYAN);//cor do fundo da janela
-setModal(true);
-Container cp = getContentPane();//container principal, para adicionar nele os outros componentes
-JToolBar toolBar = new JToolBar();
 
-String[] colunas = new String[]{"IdEditora", "Nome", "IdAutor", };
-String[][] dados = new String[0][3];
-DefaultTableModel model = new DefaultTableModel(dados, colunas);
-JTable tabela = new JTable(model);
-scroll.setViewportView(tabela);
-for (int i = 0; i < texto.size(); i++) {
-String[] linha = new String[]{String.valueOf(texto.get(i).getIdEditora()), String.valueOf(texto.get(i).getNome()), String.valueOf(texto.get(i).getIdAutor()), };
-model.addRow(linha);
-}
-painelTa.add(scroll);
-cp.add(toolBar, BorderLayout.NORTH);
-cp.add(scroll, BorderLayout.CENTER);
-CentroDoMonitorMaior centroDoMonitorMaior = new CentroDoMonitorMaior();
-setLocation(centroDoMonitorMaior.getCentroMonitorMaior(this));
-setVisible(true);
-}
+public class GUIListagemEditora extends JDialog {
+
+    JPanel painelTa = new JPanel();
+    JScrollPane scroll = new JScrollPane();
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    DecimalFormat decimalFormat = new DecimalFormat("###,###,##0.00");
+
+    public GUIListagemEditora(List<Editora> texto) {
+        setTitle("Listagem de Editora");
+        setSize(600, 300);//tamanho da janela
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);//libera ao sair (tira da memÃ³ria a classe
+        setLayout(new BorderLayout());//informa qual gerenciador de layout serÃ¡ usado
+        setBackground(Color.CYAN);//cor do fundo da janela
+        setModal(true);
+        Container cp = getContentPane();//container principal, para adicionar nele os outros componentes
+        JToolBar toolBar = new JToolBar();
+
+        String[] colunas = new String[]{"IdEditora", "Nome", "IdAutor",};
+        String[][] dados = new String[0][3];
+        DefaultTableModel model = new DefaultTableModel(dados, colunas);
+        JTable tabela = new JTable(model);
+        scroll.setViewportView(tabela);
+        for (int i = 0; i < texto.size(); i++) {
+            String[] linha = new String[]{String.valueOf(texto.get(i).getIdEditora()), String.valueOf(texto.get(i).getNome()), String.valueOf(texto.get(i).getAutorIdAutor()),};
+            model.addRow(linha);
+        }
+        painelTa.add(scroll);
+        cp.add(toolBar, BorderLayout.NORTH);
+        cp.add(scroll, BorderLayout.CENTER);
+        CentroDoMonitorMaior centroDoMonitorMaior = new CentroDoMonitorMaior();
+        setLocation(centroDoMonitorMaior.getCentroMonitorMaior(this));
+        setVisible(true);
+    }
 }

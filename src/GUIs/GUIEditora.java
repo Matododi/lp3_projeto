@@ -152,7 +152,7 @@ public class GUIEditora extends JFrame {
                     } else {
                         pnNorte.setBackground(Color.green);
                         tfNome.setText(editora.getNome());
-                        String dao1 = String.valueOf(editora.getIdAutor());
+                        String dao1 = String.valueOf(editora.getAutorIdAutor());
                         String[] aux1 = dao1.split("-");
                         tfIdAutor.setText(aux1[0]);
                         btnUpdate.setVisible(true);
@@ -197,7 +197,7 @@ public class GUIEditora extends JFrame {
                     String[] aux0 = tfIdAutor.getText().split("-");
                     DAOEditora daoEditora = new DAOEditora();
                     Editora d0 = daoEditora.obter(Integer.valueOf(aux0[0]));
-                    editora.setIdAutor(d0.getIdAutor());
+                    editora.setAutorIdAutor(d0.getAutorIdAutor());
                     if (qualAcao.equals("incluir")) {
                         daoEditora.inserir(editora);
                     } else {
@@ -256,7 +256,7 @@ public class GUIEditora extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.exit(0);
+                dispose();
             }
         });
         DAOEditora daoEditora = new DAOEditora();

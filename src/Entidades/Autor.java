@@ -34,7 +34,7 @@ public class Autor implements Serializable {
     private Integer idAutor;
     @Column(name = "nome")
     private String nome;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAutor")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "autorIdAutor")
     private List<Editora> editoraList;
 
     public Autor() {
@@ -90,7 +90,7 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Autor[ idAutor=" + idAutor + " ]";
+        return  idAutor + "-"+nome;
     }
     
 }

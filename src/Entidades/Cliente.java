@@ -31,7 +31,7 @@ public class Cliente implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "id_cliente")
-    private String idCliente;
+    private Integer idCliente;
     @Column(name = "login")
     private String login;
     @Column(name = "senha")
@@ -42,21 +42,21 @@ public class Cliente implements Serializable {
     private String telefone;
     @Column(name = "email")
     private String email;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteIdCliente")
     private List<Venda> vendaList;
 
     public Cliente() {
     }
 
-    public Cliente(String idCliente) {
+    public Cliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
-    public String getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(String idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -130,7 +130,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Cliente[ idCliente=" + idCliente + " ]";
+        return idCliente + "-"+email;
     }
     
 }

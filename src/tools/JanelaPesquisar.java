@@ -22,14 +22,8 @@ public class JanelaPesquisar extends JDialog {
     private int x = 0;
     private int y = 0;
 
-    public JanelaPesquisar(List<String> lista, int x, int y) {//esse construtor é importante para receber dados 
+    public JanelaPesquisar(List<String> lista) {//esse construtor é importante para receber dados 
         this.lista = lista;
-        this.x = x;
-        this.y = y;
-    }
-
-    public JanelaPesquisar(List<String> listaAuxiliar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getValorRetornado() {
@@ -116,6 +110,7 @@ public class JanelaPesquisar extends JDialog {
             public void windowDeactivated(WindowEvent we) {
             }
         });
-
+        CentroDoMonitorMaior centroDoMonitorMaior = new CentroDoMonitorMaior();
+        setLocation(centroDoMonitorMaior.getCentroMonitorMaior(this));
     }
 }

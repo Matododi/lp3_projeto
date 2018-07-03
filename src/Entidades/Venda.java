@@ -34,9 +34,9 @@ public class Venda implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_venda")
     private Integer idVenda;
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+    @JoinColumn(name = "cliente_id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
-    private Cliente idCliente;
+    private Cliente clienteIdCliente;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vendaIdVenda")
     private List<Livro> livroList;
 
@@ -55,12 +55,12 @@ public class Venda implements Serializable {
         this.idVenda = idVenda;
     }
 
-    public Cliente getIdCliente() {
-        return idCliente;
+    public Cliente getClienteIdCliente() {
+        return clienteIdCliente;
     }
 
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
+    public void setClienteIdCliente(Cliente clienteIdCliente) {
+        this.clienteIdCliente = clienteIdCliente;
     }
 
     public List<Livro> getLivroList() {
@@ -93,7 +93,7 @@ public class Venda implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Venda[ idVenda=" + idVenda + " ]";
+        return idVenda + "-"+clienteIdCliente;
     }
     
 }

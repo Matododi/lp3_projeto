@@ -145,7 +145,7 @@ public class GUIVenda extends JFrame {
                         btnCreate.setVisible(true);
                     } else {
                         pnNorte.setBackground(Color.green);
-                        String dao1 = String.valueOf(venda.getIdCliente());
+                        String dao1 = String.valueOf(venda.getClienteIdCliente());
                         String[] aux1 = dao1.split("-");
                         tfIdCliente.setText(aux1[0]);
                         btnUpdate.setVisible(true);
@@ -184,10 +184,15 @@ public class GUIVenda extends JFrame {
                     jTextArea.setText("");
                     venda = new Venda();
                     venda.setIdVenda(Integer.valueOf(tfIdVenda.getText()));
+                    
                     String[] aux0 = tfIdCliente.getText().split("-");
                     DAOCliente daoCliente = new DAOCliente();
-                    Cliente d0 = daoCliente.obter(aux0[0]);
-                    venda.setIdCliente(d0);
+                    
+                    Cliente d0 = daoCliente.obter(Integer.valueOf(aux0[0]));
+                    
+                    venda.setClienteIdCliente(d0);
+                   
+                    
                     if (qualAcao.equals("incluir")) {
                         daoVenda.inserir(venda);
                     } else {
@@ -242,7 +247,7 @@ public class GUIVenda extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.exit(0);
+                dispose();
             }
         });
         DAOCliente daoCliente = new DAOCliente();

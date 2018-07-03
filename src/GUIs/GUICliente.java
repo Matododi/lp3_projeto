@@ -147,7 +147,7 @@ public class GUICliente extends JFrame {
                     jTextArea.setText("");
                     cliente = new Cliente();
                     int identificador = Integer.valueOf(tfIdCliente.getText());
-                    cliente.setIdCliente(String.valueOf(identificador));
+                    cliente.setIdCliente(identificador);
                     cliente = daoCliente.obter(cliente.getIdCliente());
                     if (cliente == null) {
                         pnNorte.setBackground(Color.red);
@@ -203,7 +203,7 @@ public class GUICliente extends JFrame {
                 try {
                     jTextArea.setText("");
                     cliente = new Cliente();
-                    cliente.setIdCliente(tfIdCliente.getText());
+                    cliente.setIdCliente(Integer.valueOf(tfIdCliente.getText()));
                     cliente.setLogin(tfLogin.getText());
                     cliente.setSenha(tfSenha.getText());
                     cliente.setEndereco(tfEndereco.getText());
@@ -274,7 +274,7 @@ public class GUICliente extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.exit(0);
+                dispose();
             }
         });
         tfIdCliente.addActionListener(new ActionListener() {

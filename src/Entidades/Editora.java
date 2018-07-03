@@ -38,9 +38,9 @@ public class Editora implements Serializable {
     private String nome;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "editoraIdEditora")
     private List<Livro> livroList;
-    @JoinColumn(name = "id_autor", referencedColumnName = "id_autor")
+    @JoinColumn(name = "autor_id_autor", referencedColumnName = "id_autor")
     @ManyToOne(optional = false)
-    private Autor idAutor;
+    private Autor autorIdAutor;
 
     public Editora() {
     }
@@ -73,12 +73,12 @@ public class Editora implements Serializable {
         this.livroList = livroList;
     }
 
-    public Autor getIdAutor() {
-        return idAutor;
+    public Autor getAutorIdAutor() {
+        return autorIdAutor;
     }
 
-    public void setIdAutor(Autor idAutor) {
-        this.idAutor = idAutor;
+    public void setAutorIdAutor(Autor autorIdAutor) {
+        this.autorIdAutor = autorIdAutor;
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Editora implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Editora[ idEditora=" + idEditora + " ]";
+        return idEditora + "-"+nome;
     }
     
 }

@@ -24,7 +24,7 @@ import tools.CentroDoMonitorMaior;
  */
 public class GUIMenu extends JFrame {
 
-    ImageIcon iconeLogo = new ImageIcon(getClass().getResource("/icones/next.png"));
+    ImageIcon iconeLogo = new ImageIcon(getClass().getResource("/icones/logo.png"));
     JLabel logo = new JLabel(iconeLogo);
 
     public GUIMenu() {
@@ -60,6 +60,7 @@ public class GUIMenu extends JFrame {
         fileMenu.add(cliente);
         fileMenu.addSeparator();
         fileMenu.add(venda);
+        fileMenu.add(autor);
         setVisible(true);
 
         livro.addActionListener(new ActionListener() {
@@ -107,6 +108,7 @@ public class GUIMenu extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
+                dispose();
             }
         });
         

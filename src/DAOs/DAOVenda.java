@@ -48,7 +48,7 @@ public class DAOVenda extends DAOGenerico<Venda> {
 
         List<String> ls = new ArrayList<>();
         for (int i = 0; i < lf.size(); i++) {
-            ls.add(lf.get(i).getIdVenda() + "-" + lf.get(i).getIdCliente());
+            ls.add(lf.get(i).getIdVenda() + "-" + lf.get(i).getClienteIdCliente());
         }
         return ls;
     }
@@ -56,6 +56,6 @@ public static void main(String[] args) {
         DAOVenda daoVenda = new DAOVenda();
         List<Venda> listaVenda = daoVenda.list();
         for (Venda venda : listaVenda) {
-            System.out.println(venda.getIdVenda() + "-" + venda.getIdCliente());
+            System.out.println(venda.getIdVenda() + "-" + venda.getClienteIdCliente());
         }
     }}
